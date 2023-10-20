@@ -1,4 +1,4 @@
-abstract final class AppConstants {
+final class AppConstants {
   AppConstants._();
 
   static String get title => "iWallet Case";
