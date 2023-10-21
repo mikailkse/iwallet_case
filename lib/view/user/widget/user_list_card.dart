@@ -30,7 +30,8 @@ final class UserListInfoPopUpCard extends IWalletAlertDialog {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   NetworkImageCircleAvatar(
-                    networkUrl: '',
+                    networkUrl:
+                        'https://images.unsplash.com/photo-1682686581221-c126206d12f0?auto=format&fit=crop&q=80&w=2940&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
                   ),
                   const _UserListInfoText(
                     title: 'Email',
@@ -104,7 +105,8 @@ final class _UserListCardBody extends StatelessWidget {
           Row(
             children: [
               NetworkImageCircleAvatar(
-                networkUrl: '',
+                networkUrl:
+                    'https://images.unsplash.com/photo-1682686581221-c126206d12f0?auto=format&fit=crop&q=80&w=2940&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
               ),
               SizedBox(width: context.dynamicWidth(0.05)),
               const Column(
