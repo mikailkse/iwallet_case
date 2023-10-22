@@ -7,5 +7,12 @@ final class NetworkImageCircleAvatar extends CircleAvatar {
           radius: radius,
           backgroundImage: NetworkImage(networkUrl),
           backgroundColor: Colors.transparent,
+          onBackgroundImageError: (error, stackTrace) => const CircleAvatar(
+            radius: 30,
+            child: Icon(
+              Icons.error,
+              color: Colors.red,
+            ),
+          ),
         );
 }
