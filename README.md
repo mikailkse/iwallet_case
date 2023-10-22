@@ -72,6 +72,7 @@ lib/
 I draw ui in figma for case wireframe
 
 - [Figma](https://www.figma.com/file/LH7w8SGNZkZ0pzmNShGVQt/iWallet?type=design&node-id=691%3A3891&mode=design&t=gJdqusRSTTdgwXf3-1)
+
 ![App Screenshot](https://i.imgur.com/p4u76z5.png)
 
 ## Project Management
