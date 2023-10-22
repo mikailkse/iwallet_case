@@ -1,3 +1,4 @@
+import 'package:iwallet_case/view/user/model/response/user_photo_list_response_model.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'user_list_response_model.g.dart';
 
@@ -19,6 +20,7 @@ class UserListResponseModel {
   String? website;
   @JsonKey(name: 'company')
   Company? company;
+  UserPhotoListResponseModel? info;
 
   UserListResponseModel({
     this.id,
@@ -29,6 +31,7 @@ class UserListResponseModel {
     this.phone,
     this.website,
     this.company,
+    this.info,
   });
 
   factory UserListResponseModel.fromJson(Map<String, dynamic> json) =>

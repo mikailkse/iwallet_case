@@ -15,6 +15,16 @@ final class IWalletTheme {
       ),
       elevation: 0,
     ),
+    searchBarTheme: SearchBarThemeData(
+      elevation: MaterialStateProperty.all(0),
+      hintStyle: MaterialStateProperty.all(
+        const TextStyle(
+          color: UIColor.darkGrey,
+          fontSize: 14,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+    ),
     textTheme: const TextTheme(
       displayLarge: TextStyle(
         color: Color(0x8a000000),
@@ -71,57 +81,5 @@ final class IWalletTheme {
         fontStyle: FontStyle.normal,
       ),
     ),
-    // inputDecorationTheme: InputDecorationTheme(
-    //   filled: true,
-    //   fillColor: UIColors.white,
-    //   labelStyle: TextStyle(
-    //     color: UIColors.endeavour,
-    //     fontSize: 14,
-    //   ),
-    //   hintStyle: TextStyle(
-    //     color: UIColors.gunPowder,
-    //     fontSize: 16,
-    //     fontWeight: FontWeight.w400,
-    //     fontStyle: FontStyle.normal,
-    //   ),
-    //   errorStyle: TextStyle(
-    //     color: UIColors.orangeRoughy,
-    //   ),
-    //   errorBorder: OutlineInputBorder(
-    //     borderRadius: BorderRadius.circular(10),
-    //     borderSide: BorderSide(
-    //       color: UIColors.orangeRoughy,
-    //       width: 1.0,
-    //     ),
-    //   ),
-    //   disabledBorder: OutlineInputBorder(
-    //     borderRadius: BorderRadius.circular(10),
-    //     borderSide: BorderSide(
-    //       color: UIColors.gunPowder,
-    //       width: 1.0,
-    //     ),
-    //   ),
-    //   focusedErrorBorder: OutlineInputBorder(
-    //     borderRadius: BorderRadius.circular(10),
-    //     borderSide: BorderSide(
-    //       color: UIColors.gunPowder,
-    //       width: 1.0,
-    //     ),
-    //   ),
-    //   focusedBorder: OutlineInputBorder(
-    //     borderRadius: BorderRadius.circular(10),
-    //     borderSide: BorderSide(
-    //       color: UIColors.gunPowder,
-    //       width: 1.0,
-    //     ),
-    //   ),
-    //   enabledBorder: OutlineInputBorder(
-    //     borderRadius: BorderRadius.circular(10),
-    //     borderSide: BorderSide(
-    //       color: UIColors.gunPowder,
-    //       width: 1.0,
-    //     ),
-    //   ),
-    // ),
   );
 }

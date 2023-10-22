@@ -20,8 +20,6 @@ final class UserListCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    userViewModel.fetchPhotoUserList(
-        id: userViewModel.userListResponseModel[index].id ?? 0);
     return InkWell(
       onTap: () => IWalletAlertDialog(
         content: Wrap(
@@ -30,8 +28,9 @@ final class UserListCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 NetworkImageCircleAvatar(
-                  networkUrl:
-                      "https://fastly.picsum.photos/id/5/5000/3334.jpg?hmac=R_jZuyT1jbcfBlpKFxAb0Q3lof9oJ0kREaxsYV3MgCc",
+                  networkUrl: userViewModel
+                          .userListResponseModel[index].info?.downloadUrl ??
+                      '',
                 ),
                 SizedBox(height: context.dynamicHeight(0.02)),
                 Text(
@@ -59,6 +58,11 @@ final class UserListCard extends StatelessWidget {
                       userViewModel.userListResponseModel[index].phone ?? '',
                 ),
                 _UserListPopUpInfoText(
+                  title: 'Adres',
+                  trailingText:
+                      '${userViewModel.userListResponseModel[index].address?.street} ${userViewModel.userListResponseModel[index].address?.suite}',
+                ),
+                _UserListPopUpInfoText(
                   title: 'Şehir',
                   trailingText: userViewModel
                           .userListResponseModel[index].address?.city ??
@@ -83,8 +87,9 @@ final class UserListCard extends StatelessWidget {
             Row(
               children: [
                 NetworkImageCircleAvatar(
-                  networkUrl:
-                      "https://fastly.picsum.photos/id/5/5000/3334.jpg?hmac=R_jZuyT1jbcfBlpKFxAb0Q3lof9oJ0kREaxsYV3MgCc",
+                  networkUrl: userViewModel
+                          .userListResponseModel[index].info?.downloadUrl ??
+                      '',
                 ),
                 SizedBox(width: context.dynamicWidth(0.05)),
                 Column(
