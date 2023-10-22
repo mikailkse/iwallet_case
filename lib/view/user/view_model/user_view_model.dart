@@ -84,5 +84,4 @@ mixin _UserViewModelMixin {
   TextEditingController searchController = TextEditingController();
 
   List<UserListResponseModel> userListResponseModel = [];
-  List<UserListResponseModel> searchUserListResponseModel = [];
 }
