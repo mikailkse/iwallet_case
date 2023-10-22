@@ -3,9 +3,9 @@ import 'package:iwallet_case/core/utils/constants/ui_color_constants.dart';
 
 final class IWalletTheme {
   final ThemeData iWalletTheme = ThemeData(
-    scaffoldBackgroundColor: UIColor.titanWhite,
+    scaffoldBackgroundColor: UIColor.athensGray,
     appBarTheme: const AppBarTheme(
-      backgroundColor: UIColor.titanWhite,
+      backgroundColor: UIColor.athensGray,
       centerTitle: true,
       titleTextStyle: TextStyle(
         color: Colors.black,
@@ -69,7 +69,6 @@ final class IWalletTheme {
         fontSize: 18,
         fontWeight: FontWeight.w500,
         fontStyle: FontStyle.normal,
-        fontFamily: 'medium',
       ),
     ),
     // inputDecorationTheme: InputDecorationTheme(
