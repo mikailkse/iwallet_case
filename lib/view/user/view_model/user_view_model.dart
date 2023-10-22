@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:iwallet_case/core/helper/debouncer.dart';
 import 'package:iwallet_case/view/user/model/response/user_list_response_model.dart';
 import 'package:iwallet_case/view/user/model/response/user_photo_list_response_model.dart';
 import 'package:iwallet_case/view/user/service/user_view_service.dart';
@@ -10,6 +11,23 @@ final class UserViewModel extends ChangeNotifier with _UserViewModelMixin {
 
   void initViewModel() {
     fetchUserList();
+  }
+
+  void runFilter(String value) {
+    if (value.isEmpty) {
+      fetchUserList();
+    } else {
+      _debouncer.run(() {
+        userListResponseModel = userListResponseModel
+            .where((element) =>
+                element.name
+                    ?.toLowerCase()
+                    .contains(value.trim().toLowerCase()) ??
+                false)
+            .toList();
+      });
+    }
+    notifyListeners();
   }
 
   Future<void> fetchUserList() async {
@@ -46,6 +64,10 @@ final class UserViewModel extends ChangeNotifier with _UserViewModelMixin {
 mixin _UserViewModelMixin {
   final bool _isLoading = false;
   bool get isLoading => _isLoading;
+
+  final _debouncer = Debouncer(milliseconds: 500);
+
+  String searchController = "";
 
   List<UserListResponseModel> userListResponseModel = [];
   UserPhotoListResponseModel userPhotoListResponseModel =

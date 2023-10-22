@@ -42,9 +42,11 @@ class _UserViewState extends State<UserView> {
             height: isSearchbarVisible ? 50 : 0,
             duration: const Duration(milliseconds: 400),
             padding: context.paddingLow,
-            child: SearchBar(
-              elevation: MaterialStateProperty.all(0),
-              onChanged: (value) {},
+            child: Consumer<UserViewModel>(
+              builder: (context, viewModel, child) => SearchBar(
+                elevation: MaterialStateProperty.all(0),
+                onChanged: (value) => viewModel.runFilter(value),
+              ),
             ),
           ),
           Expanded(
