@@ -9,6 +9,8 @@ final class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      scrollBehavior: const ScrollBehavior()
+          .copyWith(physics: const BouncingScrollPhysics()),
       title: AppConstants.title,
       theme: IWalletTheme().iWalletTheme,
       debugShowCheckedModeBanner: false,

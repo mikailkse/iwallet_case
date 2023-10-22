@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 
 class IWalletAlertDialog extends AlertDialog {
-  const IWalletAlertDialog({
+  IWalletAlertDialog({
     super.key,
     super.actions,
     super.content,
     super.icon,
     super.actionsAlignment,
-  });
+  }) : super(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+        );
 }
 
 extension CustomAlertDialogExtension on IWalletAlertDialog {

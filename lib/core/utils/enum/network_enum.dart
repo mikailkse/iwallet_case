@@ -3,7 +3,8 @@ import 'package:iwallet_case/core/utils/constants/app_constants.dart';
 enum NetworkRoutes {
   baseURL(AppConstants.baseUrl),
   photoUrl(AppConstants.photoUrl),
-  users("users");
+  users("users"),
+  photo("id/");
 
   final String route;
 
