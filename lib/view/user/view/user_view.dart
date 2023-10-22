@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iwallet_case/core/components/info/search_info_text.dart';
 import 'package:iwallet_case/core/extension/range_extension.dart';
 import 'package:iwallet_case/view/user/view_model/user_view_model.dart';
 import 'package:iwallet_case/view/user/widget/user_list_card.dart';
@@ -42,9 +43,20 @@ class _UserViewState extends State<UserView> {
             height: isSearchbarVisible ? 50 : 0,
             duration: const Duration(milliseconds: 400),
             padding: context.paddingLow,
-            child: SearchBar(
-              elevation: MaterialStateProperty.all(0),
-              onChanged: (value) {},
+            child: Consumer<UserViewModel>(
+              builder: (context, viewModel, child) => SearchBar(
+                hintText: "Kullanıcı ara...",
+                controller: viewModel.searchController,
+                onChanged: (value) => viewModel.runFilter(),
+                trailing: [
+                  viewModel.searchController.text.isEmpty
+                      ? const SizedBox()
+                      : IconButton(
+                          onPressed: () => viewModel.cancelButton(),
+                          icon: const Icon(Icons.cancel),
+                        )
+                ],
+              ),
             ),
           ),
           Expanded(
@@ -52,19 +64,19 @@ class _UserViewState extends State<UserView> {
               builder: (context, viewModel, child) =>
                   viewModel.isLoading == true
                       ? const Center(child: CircularProgressIndicator())
-                      : ListView.builder(
-                          shrinkWrap: true,
-                          itemCount: viewModel.userListResponseModel.length,
-                          controller: controller,
-                          scrollDirection: Axis.vertical,
-                          padding: context.paddingLow,
-                          itemBuilder: (context, index) {
-                            return UserListCard(
-                              userViewModel: viewModel,
-                              index: index,
-                            );
-                          },
-                        ),
+                      : viewModel.userListResponseModel.isEmpty
+                          ? const SearchInfoText()
+                          : ListView.builder(
+                              shrinkWrap: true,
+                              itemCount: viewModel.userListResponseModel.length,
+                              controller: controller,
+                              scrollDirection: Axis.vertical,
+                              padding: context.paddingLow,
+                              itemBuilder: (context, index) => UserListCard(
+                                userViewModel: viewModel,
+                                index: index,
+                              ),
+                            ),
             ),
           ),
         ],

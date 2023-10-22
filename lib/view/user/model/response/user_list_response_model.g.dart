@@ -21,6 +21,10 @@ UserListResponseModel _$UserListResponseModelFromJson(
       company: json['company'] == null
           ? null
           : Company.fromJson(json['company'] as Map<String, dynamic>),
+      info: json['info'] == null
+          ? null
+          : UserPhotoListResponseModel.fromJson(
+              json['info'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$UserListResponseModelToJson(
@@ -34,6 +38,7 @@ Map<String, dynamic> _$UserListResponseModelToJson(
       'phone': instance.phone,
       'website': instance.website,
       'company': instance.company,
+      'info': instance.info,
     };
 
 Address _$AddressFromJson(Map<String, dynamic> json) => Address(
